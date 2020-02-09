@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HAVA DURUMU </title>
+</head>
+
+<body>
+
+
+
+    <select name="" id="hava" onchange="secildiginde()">
+        <option value="istanbul">İstanbul</option>
+        <option value="izmir">İzmir</option>
+        <option value="ankara">Ankara</option>
+        <option value="diyarbakir">Diyarbakır</option>
+
+        <p id="tahmin"></p>
+
+    </select>
+
+    <script>
+        function secildiginde() {
+
+            let degerSecildiginde = document.getElementById('tahmin');
+            let havaDurumu = document.getElementById('hava').value;
+            switch (havaDurumu) {
+                case "istanbul":
+                    document.getElementById('bulut').src = "./img/1.jpg";
+
+                    break;
+                case "izmir":
+                    document.getElementById('bulut').src = "./img/2.jpg";
+
+                    break;
+                case "ankara":
+                    document.getElementById('bulut').src = "./img/3.jpg";
+                    break;
+
+                case "diyarbakir":
+                    document.getElementById('bulut').src = "./img/4.jpg";
+
+                    break;
+
+            }
+           // document.getElementById('tahmin').innerText= 
+        }
+    </script>
+    <div>
+        <img  id="bulut" />
+      
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

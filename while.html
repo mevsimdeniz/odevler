@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="sayi1" value="">
+    <input type="text" id="sayi2" value="">
+    <button onclick="bul()">BUL</button>
+
+    <button onclick="ara()">ARA</button>
+    <script>
+        var isimler = ["mevsim", "türkay", "gizem", "derya", "mevsim"];
+
+        function bul() {
+            let a = parseInt(document.getElementById('sayi1').value);
+            let b = parseInt(document.getElementById('sayi2').value);
+            let c = a % b;
+
+            while (c !== 0) {
+                a = b;
+                b = c;
+                c = a % b ;
+
+
+
+            }
+            alert('EN BÜYÜK OB:' + a);
+
+        }
+
+        function ara() {
+            let bulunanElamanSayisi = 1;
+            let index = 0;
+            while (index < isimler.length - 1) {
+                let karsilastirilacakIsim = isimler[index];
+                let karsilastirilacakIndex = index + 1;
+                while (karsilastirilacakIndex < isimler.length) {
+                    if (karsilastirilacakIsim === isimler[karsilastirilacakIndex]) {
+                        bulunanElamanSayisi++;
+
+                    }
+                    karsilastirilacakIndex++;
+                }
+                index++;
+            }
+            console.log(bulunanElamanSayisi);
+        }
+    </script>
+</body>
+
+</html>

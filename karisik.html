@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>karisik</title>
+</head>
+<body onload="tablo()">
+    <table id="table" border="3"></table>
+    <ul id="menu"></ul>
+    <span id="sonuc"></span>
+
+
+    <input type="text" placeholder="kelime giriniz!" value="" id="kelime"/>
+    <button id="buttonAra"> Ara </button>
+    <p id="sonuc1"></p>
+    <p id="sonuc2"></p>
+
+    <input type="text" id="textSayi"/>
+    <button onclick="say()">Basamak Sayısı</button>
+
+    <script>
+        function tablo() {
+            for (var x = 0; x <= 9; x++){
+                let tr = document.createElement('tr');
+                for (var y = 0; y <= 9; y++) {
+                    let td = document.createElement('td');
+                    let sonuc = x*y ;
+                    td.innerText = x + "x" + y + "=" + sonuc;
+                    tr.appendChild(td);
+                    
+                    
+                }
+                document.getElementById('table').appendChild(tr);
+            }
+            
+        }
+
+
+        let sehirler = ["istanbul", "ankara" ,"izmir"];
+        document.getElementById('buttonAra').addEventListener('click', ara);
+
+        function ara() {
+            let aranacakKelime = document.getElementById('kelime').value;
+            document.getElementById('sonuc1').innerText= arrayIcindeAra(aranacakKelime,sehirler);
+            document.getElementById('sonuc2').innerText =arrayIcindeAraVeIndexiniGetir(aranacakKelime,sehirler);
+
+            
+        }
+        function arrayIcindeAra(aranacakIfade,aranacakArray) {
+            let varMi = false;
+
+            for(let i  = 0 ; i < aranacakArray.length; i++){
+                if (aranacakIfade ===aranacakArray[i]) {
+                    varMi = true;
+                    break;
+                    
+                }
+            }
+            if (varMi) {
+                return "Vardır";
+                
+            }
+            return "Yoktur";
+        }
+
+        function arrayİcindeAraVeIndexiniGetir(aranacakIfade,aranacakAray) {
+            let bulunanIndex = -1;
+            for (var i =0 ; i <aranacakAray.length; i++){
+                if (aranacakIfade ===aranacakAray[i]) {
+
+                    bulunanIndex = i;
+                    break;
+                    
+                }
+            }
+             return bulunanIndex;
+            
+        }
+
+        function say() {
+            let sayi = parseInt(document.getElementById('textSayi').value);
+            basamakSayisi = 0 ;
+            while (sayi > 0 ) {
+                sayi = parseInt(sayi / 10);
+                basamakSayisi++;
+                
+            }
+             alert (basamakSayisi);
+            
+        }
+
+    
+
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+        <input type="button" name="name" value="Oyuncu 1" onclick="zarAt()" />
+        <input type="button" name="name" value="Oyuncu 2" onclick="zarAt()" />
+        <div class="zarAlani">
+            <img src="./img/1.PNG" id="zar1" alt="" />
+            <img src="./img/1.PNG" id="zar2" alt="" />
+        </div>
+        <span id="sonuc"></span>
+        <script>
+    
+            let ikinciOyuncuZarAttiMi = false;
+            let birinciOyuncuZarAttiMi = false;
+    
+            let oyuncu1Toplam = 0;
+            let oyuncu2Toplam = 0;
+            function zarAt() {
+    
+                if (birinciOyuncuZarAttiMi == false) {
+                    oyuncu1Toplam = zarAtVeTopla();
+                    birinciOyuncuZarAttiMi = true;
+                   
+                } else if (ikinciOyuncuZarAttiMi == false) {            
+    
+                    oyuncu2Toplam = zarAtVeTopla();
+                    ikinciOyuncuZarAttiMi = true;
+                }
+    
+                if (birinciOyuncuZarAttiMi && ikinciOyuncuZarAttiMi) {
+                    karsilastir(oyuncu1Toplam, oyuncu2Toplam);
+                }
+    
+    
+    
+    
+            }
+    
+            function zarAtVeTopla() {
+                 let sayi = Math.floor(Math.random() * 6) + 1
+                    document.getElementById('zar1').src = './images/' + sayi + '.PNG';
+    
+                    let sayi2 = Math.floor(Math.random() * 6) + 1
+                    document.getElementById('zar2').src = './images/' + sayi2 + '.PNG';
+    
+                return  sayi + sayi2;
+                 
+            }
+    
+            function karsilastir(oyuncu1, oyuncu2) {
+    
+                let gosterilecekYer = document.getElementById('sonuc');
+                if (oyuncu1 > oyuncu2) {
+                    gosterilecekYer.innerText = "Oyuncu 1 kazandı";
+                }
+                else if (oyuncu1 < oyuncu2) {
+                    gosterilecekYer.innerText = "Oyuncu 2 kazandı";
+                }
+                else {
+                    gosterilecekYer.innerText = "Berabere!";
+                }
+    
+                birinciOyuncuZarAttiMi = false;
+                ikinciOyuncuZarAttiMi = false;
+            }
+        </script>
+</body>
+
+</html>

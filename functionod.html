@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="tiklandi()">Test et </button>
+    <br />
+    <input type="text" id="textsayi1">
+    <br />
+    <input type="text" id="textsayi2">
+    <br />
+    <button onclick="tik()">Topla</button>
+    <span id="toplam"></span>
+    <br />
+    <button onclick="tiklandi3()">Çıkart</button>
+    <span id="cikar"></span>
+    <br />
+    <button onclick="us1()"> Üs al - For </button>
+    <br />
+    <button onclick="us2()">Üs al - While </button>
+    <br />
+
+    <input type="text" id="sayi" placeholder="faktöriyel için sayı gir">
+    <input type="button" name="" id="hesapla" value="hesapla">
+
+
+
+
+
+    <script>
+        function topla(sayi1, sayi2) {
+            return sayi1 + sayi2;
+        }
+
+        function tiklandi() {
+            let sonuc = topla(8, 5);
+            alert(sonuc);
+
+        }
+
+        function tik() {
+            let sayi1 = parseInt(document.getElementById('textsayi1').value);
+            let sayi2 = parseInt(document.getElementById('textsayi2').value);
+            let sonuc = topla(sayi1, sayi2);
+            alert(sonuc);
+            document.getElementById('toplam').innerText = sonuc;
+
+
+        }
+
+        function cikar(sayi1, sayi2) {
+            return sayi1 - sayi2;
+
+        }
+
+        function tiklandi3() {
+            let sayi1 = parseInt(document.getElementById('textsayi1').value);
+            let sayi2 = parseInt(document.getElementById('textsayi2').value);
+            let sonuc = cikar(sayi1, sayi2);
+            document.getElementById('cikar').innerText = sonuc;
+
+
+        }
+
+        function us1() {
+            let sayi1 = parseInt(document.getElementById('textsayi1').value);
+            let sayi2 = parseInt(document.getElementById('textsayi2').value);
+            let sonuc = usAl(sayi1, sayi2);
+            document.getElementById('toplam').innerText = sonuc;
+
+        }
+
+        function us2() {
+            let sayi1 = parseInt(document.getElementById('textsayi1').value);
+            let sayi2 = parseInt(document.getElementById('textsayi2').value);
+            let sonuc = alternatifUsAl(sayi1, sayi2);
+            document.getElementById('toplam').innerText = sonuc;
+        }
+
+        function usAl(x, y) {
+            let sonuc = 1;
+            for (var i = 0; i < y; i++) {
+                sonuc *= x;
+            }
+            return sonuc;
+
+        }
+
+        function alternatifUsAl(x, y) {
+            let sonuc = 1;
+            let carpmaSayisi = 0;
+            while (carpmaSayisi < y) {
+                sonuc *= x;
+                carpmaSayisi++;
+            }
+            return sonuc;
+        }
+
+        function hesapla() {
+            var faktoriyel= 1;
+            var sayi = document.getElementById('sayi').value;
+            sayi = Number(sayi);
+
+            if (sayi >= 0) {
+                for (var i = 1; i <= sayi; i++) {
+                    faktoriyel = faktoriyel * i;
+
+
+                }
+                window.alert(sayi + " sayisinin faktöriyeli " + faktoriyel);
+            }
+
+        }
+        var hesapBtn = document.getElementById("hesapla");
+        hesapBtn.onclick = hesapla;
+    </script>
+
+</body>
+
+</html>

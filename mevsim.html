@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="isim" placeholder="isim giriniz" value="">
+    <button id="buttonAra">İsim Ara</button>
+    <p id="sonuc"></p>
+    <p id="sonuc1"></p>
+
+    <script>
+        let isimler = ['mevsim', 'yiğit', 'nida', 'mevsim', 'çağla', 'mustafa', 'esra'];
+        console.log(isimler);
+        document.getElementById('buttonAra').addEventListener('click', ara);
+
+        function ara() {
+            let aranacakKelime = document.getElementById('isim').value;
+            document.getElementById('sonuc').innerText = arrayIcındeAra(aranacakKelime, isimler);
+            document.getElementById('sonuc1').innerText = arrayIcındeAraVeIndexiniGetir(aranacakKelime, isimler);
+        }
+
+        function arrayIcındeAra(aranacakIfade, aranacakArray) {
+
+            let i = 0;
+            while (isimler > 0) {
+                isimler += value 
+                i++;
+
+            }
+            document.getElementById('sonuc').innerText = isimler;
+
+        }
+    </script>
+</body>
+
+</html>

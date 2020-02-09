@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            background-color: red;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: white;
+            border: 1px solid rgba(255, 0, 0, 1);
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+    </head>
+
+    <body>
+        <h1>Çarpım Tablosu</h1>
+        <script type="text/javascript">
+            document.write("<div class='grid-container'>");
+            for (var x = 1; x <= 9; x++) {
+                document.write("<div class='grid-item'>");
+                for (var y = 1; y <= 10; y++) {
+                    document.write(x + "x" + y + "=" + x * y + "<br/>");
+                }
+                document.write("</div>");
+            }
+            document.write("</div>");
+        </script>
+
+        <script type="text/javascript">
+            document.write("<table border='3'><tr>");
+            for (var x = 1; x <= 10; x++) {
+                document.write("<td>");
+                for (var i = 1; i <= 10; i++) {
+                    document.write(x + "x" + i + "=" + x * i + "<br/>");
+                }
+                if (x == 5) {
+                    document.write("</tr><tr>");
+                }
+                document.write("</td>");
+            }
+            document.write("</tr><table>");
+        </script>
+
+    </body>
+
+</html>

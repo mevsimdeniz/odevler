@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="sehir giriniz" value="" id="kelime" />
+    <button id="buttonAra">Ara</button>
+    <p id="sonuc1"></p>
+    <p id="sonuc2"></p>
+
+    <script>
+        let sehirler = ["Ankara", "İzmir", "istanbul"];
+        document.getElementById('buttonAra').addEventListener('click', ara);
+
+        function ara() {
+            let aranacakKelime = document.getElementById('kelime').value;
+            document.getElementById('sonuc1').innerText = arrayIcindeAra(aranacakKelime, sehirler);
+            document.getElementById('sonuc2').innerText= arrayIcindeAraVeIndexiniGetir(aranacakKelime,sehirler);
+        }
+
+        //      let varMi = false;
+        //     for (let i = 0; i < sehirler.length; i++) {
+        //         if (aranacakKelime === sehirler[i]) {
+        //             varMi = true;
+        //             break;
+        //         }
+
+
+        //     }
+        //     if (varMi) {
+        //         document.getElementById('sonuc1').innerText = "vardır";
+
+        //     } else {
+        //         document.getElementById('sonuc1').innerText = "yoktur";
+        //     }
+
+        // }
+
+
+
+        function arrayIcindeAra(aranacakIfade, aranacakArray) {
+            let varMi = false;
+
+            for (let i = 0; i < aranacakArray.length; i++) {
+                if (aranacakIfade === aranacakArray[i]) {
+                      varMi = true;
+                    break;
+                }
+
+
+            }
+            if (varMi) {
+                return "Vardır";
+
+            }
+            return "Yoktur";
+
+
+        }
+
+        function arrayIcindeAraVeIndexiniGetir(aranacakIfade, aranacakArray) {
+            let bulunanIndex = -1;
+            for (var i = 0; i < aranacakArray.length; i++) {
+                if (aranacakIfade === aranacakArray[i]) {
+
+                    bulunanIndex = i;
+                    break;
+                }
+            }
+            return bulunanIndex;
+
+
+        }
+    </script>
+</body>
+
+</html>

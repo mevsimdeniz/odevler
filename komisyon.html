@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Ürün Fiyatı:1000</p>
+    <p>Lütfen ödeme türünü seçin
+        <select name="" id="selectOdeme" onchange="degisti()">
+            <option value="0">Kredi kartına taksitle</option>
+            <option value="1">Banka havalesi</option>
+            <option value="2">Kapıda ödeme</option>
+        </select>
+        <br />
+        Toplam tutar : <span id="tutar"></span>
+    </p>
+
+    <script>
+        function degisti() {
+            //  seşilen 0 ise %3 komisyon
+            //           1    % 1 
+            //           2     %0 
+            let secilenDeger = document.getElementById('selectOdeme').value;
+            let sonuc = 0;
+            switch (secilenDeger) {
+                case '0':
+                sonuc= 1000 * 1.03;
+
+                    break;
+                case '1':
+                sonuc= 1000 * 1.01;
+
+                    break;
+                case '2':
+                sonuc= 1000 * 1;
+
+                    break;
+                default:
+                    break;
+            }
+            document.getElementById('tutar').innerText= sonuc + '   TL';
+        }
+    </script>
+
+</body>
+
+</html>

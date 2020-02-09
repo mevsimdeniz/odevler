@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="şehir adı" value="" id="kelime">
+    <button id="buttonAra"> TIKLA </button>
+    <P id="sonuc1"> </P>
+    <P id="sonuc2"> </P>
+
+    <script>
+        let sehlirler = ["Ankara", "istanbul", "izmir", "aydın"];
+        document.getElementById('buttonAra').addEventListener('click', ara);
+
+        function ara() {
+            let aranacakKelime = document.getElementById('kelime').value;
+            document.getElementById('sonuc1').innerText = arrayIcindeAra(aranacakKelime,sehlirler);
+          //RF  document.getElementById('sonuc2').innerText = arrayIcindeAraVeIndexiniGetir(aranacakKelime, sehlirler);
+
+        }
+
+        function arrayIcindeAra(aranacakIfade, aranacakArray) {
+            let varMi = false;
+            let i = 0;
+            
+            while (i < aranacakArray.length) {
+                if (aranacakArray[i] === aranacakIfade) { 
+                    varMi = true;
+                    
+                }
+                 
+
+
+            }
+            return varMi ;
+            
+            alert(sehlirler);
+        }
+
+      //  function arrayIcindeAraVeIndexiniGetir(aranacakIfade,aranacakArray) {
+          //  let bulunanIndex = -1;
+          //  while () {
+                
+         //   }
+       // }
+   
+      
+    </script>
+
+</body>
+
+</html>

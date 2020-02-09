@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body onload="tablo()">
+    <table id="table" border="1"></table>
+    <ul id="menu"></ul>
+
+    <p id="yazi"></p>
+    ekrarla</button> <button onclick="dongu()">yazı t
+        <br />
+        <button onclick="dongu1()">liste</button>
+        <br />
+        <input type="text" id="yas">
+        <button onclick="yasEkle()">YAŞ EKLE</button>
+        <span id="bilgi"></span>
+
+        <button onclick="buyuk()">En büyüğü bul</button>
+        <br />
+        <button onclick="kucuk()">En Küçüğü Bul</button>
+        <br />
+        <button onclick="orta()">Ortalamaya Bul</button>
+        <span id="sonuc"></span>
+        <br />
+
+
+
+        <button onclick="goster()">Çarpım Tablosu</button>
+        <span id="carpımTablosu"></span>
+
+        <ul id="menu">
+
+        </ul>
+
+
+
+        <script>
+            var menuEleman = ["Kitap", "Giyim", "Kozmetik"];
+
+
+            function dongu() {
+                for (let i = 0; i < 4; i++) {
+                    document.getElementById('yazi').innerText += " selam ";
+
+                }
+            }
+
+            function dongu1() {
+                for (let index = 0; index < menuEleman.length; index++) {
+                    var li = document.createElement('li');
+                    li.innerText = menuEleman[index];
+                    document.getElementById('menu').appendChild(li);
+
+                }
+
+            }
+            var yaslar = [];
+
+            function yasEkle() {
+                let yas = parseInt(document.getElementById('yas').value);
+                yaslar.push(yas);
+                document.getElementById('bilgi').innerText = yaslar.length + " adet yaş girildi";
+
+            }
+
+            function buyuk() {
+                console.log(yaslar);
+                let enBuyuk = yaslar[0];
+                for (let index = 1; index < yaslar.length; index++) {
+                    if (enBuyuk < yaslar[index]) {
+                        enBuyuk = yaslar[index];
+
+                    }
+
+
+                }
+                document.getElementById('sonuc').innerText = enBuyuk;
+            }
+
+            function orta() {
+                let enKucuk = yaslar[0];
+                for (let index = 0; index < yaslar.length; index++) {
+                    if (enKucuk > yaslar[index]) {
+                        enKucuk = yaslar[index];
+
+                    }
+
+                }
+                document.getElementById('sonuc').innerText = enKucuk;
+            }
+
+            function orta() {
+                let toplam = 0;
+                for (let index = 0; index < yaslar.length; index++) {
+                    toplam += yaslar[index];
+
+
+                }
+                let ortalama = toplam / yaslar.length;
+                document.getElementById('sonuc').innerText = ortalama;
+
+
+            }
+
+            function goster() {
+                for (let x = 1; x <= 9; x++) {
+                    for (let y = 1; y <= 9; y++) {
+                        let p = document.createElement('p')
+                        let sonuc = x * y
+                        p.innerText = x + "x" + y + "=" + sonuc;
+
+                        document.getElementById('carpımTablosu').append(p);
+                        console.log(x);
+                    }
+
+                }
+
+            }
+
+            function tablo() {
+                for (var x = 0; x <= 9; x++) {
+                    let tr = document.createElement('tr');
+                    for (var y = 0; y <= 9; y++) {
+
+                        let td = document.createElement('td');
+                        let sonuc = x * y;
+                        td.innerText = x + "x" + y + "=" + sonuc;
+                        tr.appendChild(td);
+
+
+                    }
+                    document.getElementById('table').appendChild(tr);
+
+
+                }
+
+            }
+        </script>
+
+</body>
+
+</html>

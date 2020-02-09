@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body onload="arrayNedir()">
+    <input type="text" id="isim" />
+    <button onclick="ekle()">Ekle</button>
+    <p id="bilgi"></p>
+
+    <input type="text" id="sayi" />
+    <button onclick="cevir()">Yazıya Çevir</button>
+    <p id="yazi"></p>
+
+    <script>
+        function arrayNedir() {
+            let mevsimler = ['ilkbahar', 'yaz', 'sonbahar', 'kış'];
+            console.log(mevsimler[0]);
+            console.log(mevsimler[mevsimler.length - 1]);
+        }
+        let insanlar = [];
+
+        function ekle() {
+            let isim = document.getElementById('isim').value;
+            insanlar.push(isim);
+            document.getElementById('bilgi').innerText = 'array içinde' + insanlar.length + 'eleman var.';
+
+
+        }
+
+        function cevir() {
+            let birler=["","bir","iki","üç","dört","beş","altı","yedi","sekiz","dokuz"];
+            let onlar =["","on","yirmi","otuz","kırk","elli","altmış","yetmiş","seksen","doksan"];
+
+            let deger = document.getElementById('sayi').value;
+            let sayi =parseInt(deger);
+
+            let onlarBasamagı = parseInt(sayi / 10);
+            console.log(onlarBasamagı);
+
+            let birlerBasamagı = sayi % 10 ;
+            console.log(onlarBasamagı);
+
+            let sonuc =onlar[onlarBasamagı] + birler[birlerBasamagı];
+            document.getElementById('yazi').innerText = sonuc;
+            
+        }
+    </script>
+</body>
+
+</html>
